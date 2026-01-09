@@ -9,19 +9,19 @@ const sizeClasses = {
 	2: "px-3.5 py-1.5 text-xs",
 
 	// Size 3: Small – form nhỏ, sidebar
-	3: "px-5 py-2 text-sm",
+	3: "px-4 py-2 text-sm",
 
 	// Size 4: Small–Medium – dùng nhiều trong dashboard
-	4: "px-5.5 py-3 text-sm",
+	4: "px-5 py-2.5 text-sm",
 
 	// Size 5: Default – button chuẩn (primary)
-	5: "px-6 py-3.5 text-base",
+	5: "px-6 py-3 text-base",
 
 	// Size 6: Medium–Large – CTA vừa
-	6: "px-7.5 py-4 text-base",
+	6: "px-7 py-3.5 text-base",
 
 	// Size 7: Large – CTA chính
-	7: "px-9 py-4 text-lg",
+	7: "px-8 py-4 text-lg",
 
 	// Size 8: Extra Large – hero section
 	8: "px-10 py-5 text-lg",

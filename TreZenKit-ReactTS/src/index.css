@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.rounded-inherit{
+    border-radius: inherit;
+}

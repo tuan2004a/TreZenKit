@@ -1,24 +1,22 @@
 import { forwardRef } from "react";
-import type { ButtonProps } from "./interfaces";
-import { BtnPrimary } from "./variants/index";
+import type { ShowGradientProps } from "./interfaces";
+import { BtnPrimary, OutlineGradient } from "./variants/index";
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
-	const { variant = "primary", onClick, disabled, className, size, children, rounded, ...restProps } = props;
+const Button = forwardRef<HTMLButtonElement, ShowGradientProps>((props, ref) => {
+	const { variant = "Primary", ShowGradient, onClick, disabled, className, size, children, rounded, ...restProps } = props;
 
 	switch (variant) {
-		case "primary":
+		case "Primary":
 			return (
-				<BtnPrimary
-					variant={variant}
-					onClick={onClick}
-					disabled={disabled}
-					className={className}
-					size={size}
-					rounded={rounded}
-					{...restProps}
-				>
+				<BtnPrimary ref={ref} variant={variant} ShowGradient={ShowGradient} onClick={onClick} disabled={disabled} className={className} size={size} rounded={rounded} {...restProps}>
 					{children}
 				</BtnPrimary>
+			);
+		case "OutlineGradient":
+			return (
+				<OutlineGradient ref={ref} variant={variant} ShowGradient={ShowGradient} onClick={onClick} disabled={disabled} className={className} size={size} rounded={rounded} {...restProps}>
+					{children}
+				</OutlineGradient>
 			);
 		default:
 			return <></>;
@@ -26,4 +24,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
 });
 Button.displayName = "Button";
 
-export default Button
+export default Button;
