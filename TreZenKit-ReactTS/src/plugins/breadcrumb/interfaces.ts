@@ -1,15 +1,12 @@
 import type { ReactNode } from "react";
 
-type SeparatorProps = "arrow" | "slash" | "bullet" | "wave" | "chevron";
-
-export interface BreadcrumbItem {
-	title: ReactNode;
-}
+type SeparatorProps = "chevron" | "slash" | "bullet" | "wave";
 
 export interface BreadcrumbProps {
-	items: BreadcrumbItem[];
-	title?: ReactNode;
-	harf?: string
+	items: {
+		title: ReactNode;
+		href?: string;
+	}[];
 	separator?: SeparatorProps;
 	className?: string;
 }

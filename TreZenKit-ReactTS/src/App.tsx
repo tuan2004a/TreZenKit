@@ -9,20 +9,20 @@ function MultipleButtons() {
 						title: "Home",
 					},
 					{
-						title: <a href="/app-center">Application Center</a>, 
+						title: "Application Center",
+						href:"/app-center"
 					},
 					{
-						title: <a href="/app-list">Application List</a>,
+						title: "Application List",
+						href:"/app-list"
 					},
 					{
-						title: "An Application", 
+						title: "An Application",
 					},
 				]}
 				className="mb-4"
-				separator="slash"
+				separator="chevron"
 			/>
-
-			
 		</div>
 	);
 }

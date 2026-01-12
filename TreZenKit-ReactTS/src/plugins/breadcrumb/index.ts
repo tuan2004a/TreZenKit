@@ -1,1 +1,1 @@
-export { default as Breadcrumb } from "./variants/breadcrumb";
+export { default as Breadcrumb } from "./variants/Breadcrumb";
