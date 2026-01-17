@@ -19,7 +19,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, separator = "chevron", c
 							{item.title}
 						</a>
 					) : (
-						<span className={`${index === items.length - 1 ? "text-gray-900 font-medium" : ""}`}>{item.title}</span>
+						<span className={`${index === items.length - 1 && "text-gray-900 font-semibold"}`}>{item.title}</span>
 					)}	
 				</div>
 			))}

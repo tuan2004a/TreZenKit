@@ -1,24 +1,31 @@
 import type { ReactNode } from "react";
 
-type Variant = "default" | "notif" | "count";
+type Variant = "basic" | "notif" | "count" | "status";
 type Placement = "tr" | "tl" | "br" | "bl";
 type Rounded = "xs" | "sm" | "md" | "lg" | "xl" | "full";
-type Size = 1 | 2 | 3 | 4 | 5;
+export type Size = 1 | 2 | 3 | 4 | 5;
+type BaseColor = "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "neutral";
+type StatusColor = "online" | "active" | "offline" | "busy" | "error" | "idle" | "maintenance";
+export type Color = BaseColor | StatusColor;
 
-export interface BadgeDefaultProps {
+export interface BadgeBasicProps {
 	variant?: Variant;
 	className?: string;
 	children?: ReactNode;
 	rounded?: Rounded;
+	color?: Color;
 }
 
-export interface BadgeNotifProps extends Omit<BadgeDefaultProps, "children"> {
+export interface BadgeNotifProps extends Omit<BadgeBasicProps, "children"> {
 	placement: Placement;
 	size?: Size;
 }
-export interface BadgeCountProps extends Omit<BadgeNotifProps, "children size"> {
+export interface BadgeCountProps extends BadgeNotifProps {
 	total: number;
-	spacing?: Size;
+}
+export interface BadgeStatusProps extends Omit<BadgeBasicProps, "rounded"> {
+	classDot?: string;
+	size?: Size;
 }
 
-export type BadgeProps = ({ variant: "default" } & BadgeDefaultProps) | ({ variant: "notif" } & BadgeNotifProps) | ({ variant: "count" } & BadgeCountProps);
+export type BadgeProps = ({ variant: "basic" } & BadgeBasicProps) | ({ variant: "notif" } & BadgeNotifProps) | ({ variant: "count" } & BadgeCountProps) | ({ variant: "status" } & BadgeStatusProps);

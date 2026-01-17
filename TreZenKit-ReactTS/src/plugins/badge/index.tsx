@@ -1,22 +1,29 @@
-import { BadgeDefault, BadgeNotif, BadgeCount } from "./variants";
+import { BadgeBasic, BadgeNotif, BadgeCount, BadgeStatus } from "./variants";
 import type { BadgeProps } from "./interfaces";
 
 const Badge = (props: BadgeProps) => {
-	const { variant = "default", className, rounded, children, placement, total, spacing, size } = props as any;
+	const { variant = "basic", className, rounded, children, placement, total, size, classDot } = props as any;
 
 	switch (variant) {
-		case "default":
+		case "basic":
 			return (
-				<BadgeDefault className={className} rounded={rounded}>
+				<BadgeBasic className={className} rounded={rounded}>
 					{children}
-				</BadgeDefault>
+				</BadgeBasic>
 			);
 
 		case "notif":
 			return <BadgeNotif className={className} placement={placement} size={size} />;
 
 		case "count":
-			return <BadgeCount className={className} placement={placement} total={total} spacing={spacing} />;
+			return <BadgeCount className={className} placement={placement} total={total} size={size} />;
+
+		case "status":
+			return (
+				<BadgeStatus className={className} classDot={classDot} size={size}>
+					{children}
+				</BadgeStatus>
+			);
 
 		default:
 			throw new Error(`Unsupported variant: ${variant}`);
