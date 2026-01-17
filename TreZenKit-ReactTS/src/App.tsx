@@ -1,21 +1,22 @@
-import { Badge } from "@/plugins/badge/index";
-import { Button } from "@/plugins/button/index";
+import { Button } from "@/plugins/button";
+import { cn } from "@lib/utils";
+import {tooltipTop, tooltipBottom, tooltipLeft, tooltipRight} from "@/plugins/tooltip";
 
 function index() {
 	return (
-		<div className="flex items-center justify-center h-screen gap-3">
-			<Badge variant="basic">Badge</Badge>
-
-			<Button variant="Primary" className="relative">
-				<Badge variant="notif" placement="br" size={5} className="bg-red-500" />
-				hello
+		<div className="flex items-center justify-center h-screen gap-5">
+			<Button variant="Primary" data-tooltip="tooltip top" className={cn(tooltipLeft)}>
+				Tooltip
 			</Button>
-
-			<Button variant="Primary" className="relative">
-				<Badge variant="count" placement="tr" total={99} size={1} className="bg-red-500" />
-				hello
+			<Button variant="Primary" size={5} data-tooltip="tooltip top" className={cn(tooltipTop)}>
+				Tooltip
 			</Button>
-			<Badge variant="status" size={3}>Hiệu lực</Badge>
+			<Button variant="Primary" data-tooltip="tooltip top" className={cn(tooltipBottom)}>
+				Tooltip
+			</Button>
+			<Button variant="Primary" data-tooltip="tooltip top" className={cn(tooltipRight)}>
+				Tooltip
+			</Button>
 		</div>
 	);
 }
