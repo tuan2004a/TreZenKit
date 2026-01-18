@@ -10,3 +10,16 @@ export interface AvatarProps {
 	alt?: string;
 	size?: AvartSize;
 }
+
+export interface AvatarBasicProps {
+	src?: string;
+	className?: string;
+	rounded?: rounded;
+	alt?: string;
+	size?: AvartSize;
+}
+
+export interface AvatarCountProps extends AvatarBasicProps {
+	total: number
+}
+export interface AvatarInitialsProps {}

@@ -33,8 +33,8 @@ const tooltipBase = [
 const tooltipPlacementClass = {
 	top: "after:-top-15 after:left-1/2 after:-translate-x-1/2 before:-top-6 before:left-1/2 before:-translate-x-1/2 before:border-r-transparent before:border-l-transparent before:border-b-transparent",
 	bottom: "after:-bottom-15 after:left-1/2 after:-translate-x-1/2 before:-bottom-6 before:left-1/2 before:-translate-x-1/2 before:border-r-transparent before:border-l-transparent before:border-t-transparent",
-	left: "after:top-1/2 after:-left-7 after:-translate-x-full after:-translate-y-1/2 before:top-1/2 before:-left-7.25 before:-translate-y-1/2 before:border-r-transparent before:border-t-transparent before:border-b-transparent",
-	right: "after:-right-7 after:top-1/2 after:translate-x-full after:-translate-y-1/2 before:top-1/2 before:-right-7.25  before:-translate-y-1/2 before:border-l-transparent before:border-t-transparent before:border-b-transparent",
+	left: "after:top-1/2 after:-left-7 after:-translate-x-full after:-translate-y-1/2 before:top-1/2 before:-left-7.25 before:ml-[0.85px] before:-translate-y-1/2 before:border-r-transparent before:border-t-transparent before:border-b-transparent",
+	right: "after:-right-7 after:top-1/2 after:translate-x-full after:-translate-y-1/2 before:top-1/2 before:-right-7.25 before:mr-[0.85px] before:-translate-y-1/2 before:border-l-transparent before:border-t-transparent before:border-b-transparent",
 };
 
 export const tooltipTop = `${tooltipBase} ${tooltipPlacementClass.top}`;
