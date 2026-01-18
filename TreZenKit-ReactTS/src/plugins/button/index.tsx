@@ -19,7 +19,7 @@ const Button = forwardRef<HTMLButtonElement, ShowGradientProps>((props, ref) => 
 				</OutlineGradient>
 			);
 		default:
-			return <></>;
+			throw new Error(`Unsupported variant: ${variant}`);
 	}
 });
 Button.displayName = "Button";

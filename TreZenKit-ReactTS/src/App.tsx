@@ -5,7 +5,7 @@ function index() {
 	return (
 		<div className={cn("flex items-center justify-center h-screen gap-5")}>
 			<div className="flex-center w-3xs">
-				<Divider className="w-full" placement="end">Divider</Divider>
+				<Divider className="w-full" >Divider</Divider>
 			</div>
 		</div>
 	);
