@@ -1,12 +1,11 @@
-import type { AvatarProps } from "../interfaces";
+import type { AvatarBasicProps } from "../interfaces";
 import { cn } from "@/lib/utils";
 import { Size, Rounded } from "../shared/index";
 import React from "react";
 
-const Avatar: React.FC<AvatarProps> = ({ src = "https://i.pravatar.cc/", rounded = "md", alt = "avatar", size, className, ...props }) => {
-	
+const Avatar: React.FC<AvatarBasicProps> = ({ src = "https://i.pravatar.cc/", rounded = "md", alt = "avatar", size, className, ...props }) => {
 	const fallbackSrc = "https://placehold.co/400?text=Avatar";
-	
+
 	return (
 		<img
 			loading="lazy"

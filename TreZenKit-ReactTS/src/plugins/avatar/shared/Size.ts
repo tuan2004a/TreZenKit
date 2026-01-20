@@ -1,5 +1,5 @@
 // avatar/size.ts
-import type { AvatarProps } from "../interfaces";
+import type { AvatarBasicProps } from "../interfaces";
 
 const sizeClasses = {
 	xs: "size-6",
@@ -9,7 +9,7 @@ const sizeClasses = {
 	xl: "size-36",
 } as const;
 
-function getSizeClasses(size: AvatarProps["size"] = "md"): string {
+function getSizeClasses(size: AvatarBasicProps["size"] = "md"): string {
 	return sizeClasses[size] || sizeClasses["md"];
 }
 
