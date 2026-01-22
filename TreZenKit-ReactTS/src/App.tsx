@@ -1,10 +1,10 @@
 import { cn } from "@lib/utils";
-import { Tag } from "@/plugins/tag";
+import { Progress } from "@/plugins/progress";
 
 function index() {
 	return (
 		<div className={cn("flex items-center justify-center h-screen gap-5")}>
-			<Tag variants="removable">Tất cả</Tag>
+			<Progress />
 		</div>
 	);
 }
