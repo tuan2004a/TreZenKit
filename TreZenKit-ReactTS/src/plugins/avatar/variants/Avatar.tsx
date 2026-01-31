@@ -13,7 +13,7 @@ const Avatar: React.FC<AvatarBasicProps> = ({ src = "https://i.pravatar.cc/", ro
 			className={cn("relative object-cover object-center ", Rounded(rounded), Size(size), className)}
 			src={src}
 			onError={(e) => {
-				// Set fallback chỉ một lần để tránh loop
+				// Set fallback chỉ một lần để tránh
 				if (e.currentTarget.src !== fallbackSrc) {
 					e.currentTarget.src = fallbackSrc;
 				}
