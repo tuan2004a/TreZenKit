@@ -2,14 +2,14 @@ import type { ProgressProps } from "./interface";
 import { ProgressBasic, ProgressCircular } from "./variants";
 
 const Progress = (props: ProgressProps) => {
-	const { variant = "basic", children, ...restProps } = props;
+	const { variant = "basic", percent, size, ...restProps } = props as any;
 
 	switch (variant) {
 		case "basic":
-			return <ProgressBasic {...restProps}>{children}</ProgressBasic>;
+			return <ProgressBasic percent={percent} {...restProps} />;
 
 		case "circular":
-			return <ProgressCircular {...restProps}>{children}</ProgressCircular>;
+			return <ProgressCircular size={size} percent={percent} {...restProps} />;
 
 		default:
 			break;

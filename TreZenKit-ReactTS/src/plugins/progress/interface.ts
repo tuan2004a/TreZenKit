@@ -1,33 +1,35 @@
+//progress/interface.ts
 import type { ReactNode } from "react";
 
-type variants = "basic" | "circular";
+type VariantType = "basic" | "circular";
+type SizeType = "xs" | "sm" | "md" | "lg" | "xl";
 
-export interface ProgressProps {
-	variant?: variants;
-	children?: ReactNode;
-	className?: string;
-}
-
-export interface ProgressBasicProps {}
-
-// CircularProgress.types.ts
-export interface CircularProgressProps {
-	/** Giá trị tiến trình (0-100) */
+/**---- Basic Interface ----*/
+export interface ProgressBaseProps {
+	variant?: VariantType;
 	value?: number;
-	/** Kích thước vòng tròn (px) */
-	size?: number;
-	/** Độ dày của stroke */
-	strokeWidth?: number;
-	/** Màu của progress */
-	color?: string;
-	/** Màu nền của track */
-	trackColor?: string;
-	/** Chế độ loading không xác định */
-	indeterminate?: boolean;
-	/** Hiển thị phần trăm */
-	showValue?: boolean;
-	/** Class tùy chỉnh */
 	className?: string;
-	/** Label tùy chỉnh */
-	label?: React.ReactNode;
+	children?: ReactNode;
+	percent: number;
 }
+
+/**---- Base Progress ----*/
+export interface BasicProgressProps extends ProgressBaseProps {
+	variant?: "basic";
+	height?: number;
+	color?: string;
+	trackColor?: string;
+}
+
+/**---- Circular Progress ----*/
+export interface CircularProgressProps extends ProgressBaseProps {
+	variant?: "circular";
+	size?: SizeType;
+	strokeWidth?: number;
+	color?: string;
+	trackColor?: string;
+}
+
+// ============================================
+// Union Type for Progress Component
+export type ProgressProps = ({ variant: "basic" } & BasicProgressProps) | ({ variant: "circular" } & CircularProgressProps);
