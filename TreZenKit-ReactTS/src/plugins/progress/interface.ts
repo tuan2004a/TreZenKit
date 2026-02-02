@@ -1,7 +1,7 @@
 //progress/interface.ts
 import type { ReactNode } from "react";
 
-type VariantType = "basic" | "circular";
+type VariantType = "basic" | "circular" | "circularGap";
 type SizeType = "xs" | "sm" | "md" | "lg" | "xl";
 
 /**---- Basic Interface ----*/
@@ -11,14 +11,14 @@ export interface ProgressBaseProps {
 	className?: string;
 	children?: ReactNode;
 	percent: number;
+	color?: string;
+	trackColor?: string;
 }
 
 /**---- Base Progress ----*/
 export interface BasicProgressProps extends ProgressBaseProps {
 	variant?: "basic";
 	height?: number;
-	color?: string;
-	trackColor?: string;
 }
 
 /**---- Circular Progress ----*/
@@ -26,10 +26,15 @@ export interface CircularProgressProps extends ProgressBaseProps {
 	variant?: "circular";
 	size?: SizeType;
 	strokeWidth?: number;
-	color?: string;
-	trackColor?: string;
+	placement?: number;
+}
+
+/**---- Circular gap Progress ----*/
+export interface CircularGapProgressProps extends Omit<CircularProgressProps, "variant"> {
+	variant?: "circularGap";
+	gapAngle: number;
 }
 
 // ============================================
 // Union Type for Progress Component
-export type ProgressProps = ({ variant: "basic" } & BasicProgressProps) | ({ variant: "circular" } & CircularProgressProps);
+export type ProgressProps = ({ variant: "basic" } & BasicProgressProps) | ({ variant: "circular" } & CircularProgressProps) | ({ variant: "circularGap" } & CircularGapProgressProps);

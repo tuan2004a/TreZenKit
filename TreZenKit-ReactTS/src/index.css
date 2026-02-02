@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .rounded-inherit {
-	border-radius: inherit;
+	border-radius: inherit ;
 }
 .flex-center {
     @apply flex justify-center items-center
