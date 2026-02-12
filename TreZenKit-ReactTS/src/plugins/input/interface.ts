@@ -1,17 +1,21 @@
 import type React from "react";
 
-type variantType = "text" | "number" | "password";
+type Variant = "text" | "number" | "password";
 type sizeType = "xs" | "sm" | "md" | "lg" | "xl";
 
 /**---- Basic Interface ----*/
-export interface InputBasicProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
-	variant: variantType;
+export interface InputBaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
 	size?: sizeType;
 	className?: string;
 }
 
-export interface InputTextProps extends InputBasicProps {
-	variant: "text";
-}
+export type InputTextProps = InputBaseProps;
 
-export type InputProps = ({ variant: "text" } & InputTextProps) | ({ variant: "number" } & InputTextProps);
+export type InputNumberProps = InputBaseProps;
+
+export type InputPasswordProps = InputBaseProps;
+
+export type InputProps =
+	| (InputBaseProps & { variant: Extract<Variant, "text"> })
+	| (InputBaseProps & { variant: Extract<Variant, "number"> })
+	| (InputPasswordProps & { variant: Extract<Variant, "password"> });

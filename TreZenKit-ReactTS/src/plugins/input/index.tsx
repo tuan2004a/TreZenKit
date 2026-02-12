@@ -1,18 +1,21 @@
 import type { InputProps } from "./interface";
-import { InputText } from "./variants/index";
+import { InputText, InputNumber } from "./variants/index";
 
-const Input = (props: InputProps) => {
-	const { variant = "text", ...restProps } = props as any;
+function Input(props: InputProps) {
+	const { variant = "text", ...restProps } = props;
 
 	switch (variant) {
 		case "text":
 			return <InputText {...restProps} />;
+
 		case "number":
+			return <InputNumber {...restProps} />;
 
 		default:
-			break;
+			return null;
 	}
-};
+}
+
 Input.displayName = "Input";
 
 export default Input;
