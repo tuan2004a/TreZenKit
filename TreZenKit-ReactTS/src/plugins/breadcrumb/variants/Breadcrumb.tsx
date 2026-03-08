@@ -3,7 +3,7 @@ import type { BreadcrumbProps } from "../interfaces";
 import { Separator } from "../shared/index";
 import { cn } from "@/lib/utils";
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, separator = "chevron", className = "" }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ items = [], separator = "chevron", className = "" }) => {
 	if (items.length === 0) {
 		return null;
 	}

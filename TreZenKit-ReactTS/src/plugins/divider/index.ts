@@ -1,1 +1,1 @@
-export { default as Divider } from "./variants/Basic";
+export { default as Divider } from "./index.tsx";

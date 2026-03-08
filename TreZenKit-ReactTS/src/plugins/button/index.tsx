@@ -3,7 +3,7 @@ import type { ShowGradientProps } from "./interfaces";
 import { BtnPrimary, OutlineGradient } from "./variants/index";
 
 const Button = forwardRef<HTMLButtonElement, ShowGradientProps>((props, ref) => {
-	const { variant = "Primary", ShowGradient, onClick, disabled, className, size, children, rounded, ...restProps } = props;
+	const { variant , ShowGradient, onClick, disabled, className, size, children, rounded, ...restProps } = props;
 
 	switch (variant) {
 		case "Primary":

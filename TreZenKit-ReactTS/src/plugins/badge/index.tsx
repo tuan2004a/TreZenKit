@@ -1,4 +1,3 @@
-import React from "react";
 import { BadgeBasic, BadgeNotif, BadgeCount, BadgeStatus } from "./variants";
 import type { BadgeProps } from "./interfaces";
 
@@ -39,7 +38,6 @@ function Badge(props: BadgeProps) {
 		}
 
 		default: {
-			// Đảm bảo kiểm soát đầy đủ các variant ở mức type (exhaustive check)
 			const _exhaustiveCheck: never = variant;
 			throw new Error(`Unsupported variant: ${_exhaustiveCheck}`);
 		}

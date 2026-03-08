@@ -1,10 +1,11 @@
+import type { AvatarCountProps } from "../interfaces";
 
-const Count = () => {
-    return (
-        <div>
-        
-        </div>
-    )
-}
+const Count = ({ total = 0, ...props }: AvatarCountProps) => {
+	return (
+		<div {...props}>
+			{total}
+		</div>
+	);
+};
 
-export default Count
+export default Count;
