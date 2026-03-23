@@ -2,7 +2,7 @@ interface ProgressBarProps {
 	autoClose?: boolean;
 	isRunning?: boolean;
 	isVisible?: boolean;
-	closeDuration: number;
+	closeDuration?: number;
 }
 
 const ProgressBar = ({ autoClose = true, isRunning = true, isVisible = true, closeDuration }: ProgressBarProps) => {

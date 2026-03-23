@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { BasicProps } from "../../interface";
+import type { BasicProps } from "../interface";
 
 export function useToast(props: BasicProps) {
 	const { autoClose = true, pauseOnHover = true, closeDuration = 5000, closeOnClick = true } = props;
@@ -20,7 +20,7 @@ export function useToast(props: BasicProps) {
 		}
 	}, []);
 
-	// Xóa Toast 
+	// Xóa Toast
 	const removeToast = useCallback(() => {
 		const toastElement = toastRef.current;
 		if (!toastElement) return;
@@ -68,9 +68,8 @@ export function useToast(props: BasicProps) {
 		remainingRef.current = closeDuration;
 
 		setIsClosing(false);
-		toastElement.classList.add("ShowToast");
-
 		clearTimer();
+
 		if (autoClose == true) {
 			toastElement.removeEventListener("mouseenter", handleMouseEnter);
 			toastElement.removeEventListener("mouseleave", handleMouseLeave);
@@ -79,7 +78,7 @@ export function useToast(props: BasicProps) {
 		}
 
 		autoCloseToast();
-	}, [autoClose, pauseOnHover, closeDuration, clearTimer, handleMouseEnter, handleMouseLeave, autoCloseToast]);
+	}, [autoClose, closeDuration, clearTimer, handleMouseEnter, handleMouseLeave, autoCloseToast]);
 
 	// Nút Ẩn Toast
 	const BtnOnClick = useCallback(() => {
@@ -94,9 +93,9 @@ export function useToast(props: BasicProps) {
 	}, [closeOnClick, removeToast]);
 
 	useEffect(() => {
+		const toastElement = toastRef.current;
 		return () => {
 			clearTimer();
-			const toastElement = toastRef.current;
 			if (toastElement) {
 				toastElement.removeEventListener("mouseenter", handleMouseEnter);
 				toastElement.removeEventListener("mouseleave", handleMouseLeave);

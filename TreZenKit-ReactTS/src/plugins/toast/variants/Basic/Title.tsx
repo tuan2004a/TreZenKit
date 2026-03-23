@@ -1,5 +1,5 @@
 interface TitleProps {
-	title: string | undefined;
+	title?: string | undefined;
 }
 
 const Title = ({ title }: TitleProps) => {

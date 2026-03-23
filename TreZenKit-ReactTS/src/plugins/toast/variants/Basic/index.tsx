@@ -1,53 +1,33 @@
-import { forwardRef, useEffect, useImperativeHandle } from "react";
 import type { BasicProps } from "../../interface";
-import { cn } from "../../../../lib/utils";
-import { useToast } from "../../shared";
+import { cn } from "@/lib/utils";
 import { BtnClose, Title, ProgressBar } from "./index";
+import { ToastStore } from "../../store/index";
+import { useEffect, useState } from "react";
+import { Placement } from "../../shared/index";
 
-export interface ToastHandle {
-	showToast: () => void;
-}
+const ToastBasic = (props: BasicProps) => {
+	const { className, placement } = props;
 
-const ToastBasic = forwardRef<ToastHandle, BasicProps>((props, ref) => {
-	const {
-		title,
-		className,
-		autoClose = true,
-		pauseOnHover = true,
-		closeOnClick = false,
-		closeDuration = 5000,
-		onClose,
-	} = props;
-
-	const { toastRef, isPaused, isClosing, showToast, BtnOnClick, handleMouseEnter, handleMouseLeave, handleToastClick } = useToast({
-		...props,
-		autoClose,
-		pauseOnHover,
-		closeOnClick,
-		closeDuration,
-	});
-
-	useImperativeHandle(ref, () => ({ showToast }), [showToast]);
+	const [toasts, setToasts] = useState<BasicProps[]>([]);
 
 	useEffect(() => {
-		showToast();
-	}, [showToast]);
-
-	useEffect(() => {
-		if (!isClosing) return;
-		const timeout = setTimeout(() => onClose?.(), 300);
-		return () => clearTimeout(timeout);
-	}, [isClosing, onClose]);
+		const unsubscribe = ToastStore.subscribe(setToasts);
+		return () => {
+			unsubscribe();
+		};
+	}, []);
 
 	return (
-		<div ref={toastRef} className={cn("toast-basic fixed shadow-[0px_0px_25px_0px_#cbd5e0] flex items-center cursor-default rounded-lg overflow-hidden bg-white", className)} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleToastClick}>
-			<div className="w-70 h-15 relative p-3 pl-4 flex items-center select-none">
-				<Title title={title} />
-				<BtnClose onClick={BtnOnClick} />
-				<ProgressBar autoClose={autoClose} isRunning={!isPaused} isVisible={!isClosing} closeDuration={closeDuration} />
-			</div>
+		<div className={cn("shadow-[0px_0px_25px_0px_#cbd5e0] flex items-center cursor-default rounded-lg overflow-hidden bg-white", Placement(placement), className)}>
+			{toasts.map((item) => (
+				<div key={item.id} className={(cn("w-70 h-15 relative p-3 pl-4 flex items-center select-none"))}>
+					<Title title={item.title} />
+					<BtnClose />
+					<ProgressBar closeDuration={item.closeDuration}/>
+				</div>
+			))}
 		</div>
 	);
-});
+};
 
 export default ToastBasic;

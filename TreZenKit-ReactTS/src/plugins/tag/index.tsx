@@ -2,7 +2,7 @@ import type { TagBasicProps } from "./interface";
 import { TagBasic, TagRemovable } from "./variants";
 
 const Tag = (props: TagBasicProps) => {
-	const { variants = "basic", children } = props as any;
+	const { variants = "basic", children } = props;
 
 	switch (variants) {
 		case "basic":

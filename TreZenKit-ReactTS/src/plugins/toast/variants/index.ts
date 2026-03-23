@@ -1,1 +1,1 @@
-export { ToastBasic } from "./Basic";
+export { ToastBasic, ToastContainer } from "./Basic";
